@@ -51,3 +51,11 @@ mvn spring-boot:run -pl redis-rate-limiter-example --settings .mvn/settings.xml
 )
 @GetMapping("/api/getMyToken")
 ```
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Creator
+**Yashwant Sawant**  
+Email: yashwantr.sawant@gmail.com  
+LinkedIn: [linkedin.com/in/yashwant-sawant-abbb74b8](https://www.linkedin.com/in/yashwant-sawant-abbb74b8)
