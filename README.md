@@ -32,13 +32,17 @@ This project has two modules:
 
 ```bash
 mvn clean install --settings .mvn/settings.xml
-
+```
 
 ## Run Example App
+```bash
 mvn spring-boot:run -pl redis-rate-limiter-example --settings .mvn/settings.xml
+```
 
 
 ## How to use
+```bash
+
 @RateLimit(
     limit = 5,
     duration = 1,
@@ -46,3 +50,4 @@ mvn spring-boot:run -pl redis-rate-limiter-example --settings .mvn/settings.xml
     algorithm = RateLimitAlgorithm.FIXED_WINDOW // Optional, defaults to FIXED_WINDOW
 )
 @GetMapping("/api/getMyToken")
+```
