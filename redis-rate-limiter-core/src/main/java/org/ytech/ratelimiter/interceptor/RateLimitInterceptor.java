@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.ytech.ratelimiter.annotation.RateLimit;
+import org.ytech.ratelimiter.enums.RateLimitAlgorithm;
 import org.ytech.ratelimiter.exception.RateLimitExceededException;
 import org.ytech.ratelimiter.service.RateLimiterService;
 
@@ -46,8 +47,9 @@ public class RateLimitInterceptor implements HandlerInterceptor {
         int limit = rateLimit.limit();
         int duration = rateLimit.duration();
         TimeUnit timeUnit = rateLimit.timeUnit();
+        RateLimitAlgorithm algorithm = rateLimit.algorithm();
 
-        boolean allowed = rateLimiterService.isAllowed(userId, handlerMethod.getMethod().getName(), limit, duration, timeUnit);
+        boolean allowed = rateLimiterService.isAllowed(userId, handlerMethod.getMethod().getName(), limit, duration, timeUnit,algorithm);
 
         if (!allowed) {
             throw new RateLimitExceededException("Rate limit exceeded for user " + userId);
